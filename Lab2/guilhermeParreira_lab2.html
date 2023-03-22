@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Lab2</title>
+</head>
+<body>
+    <h1>Bakery Order</h1>
+    <script>
+        //First and Last name
+        var firstName = prompt("Please write your first name ");
+        var lastName = prompt("Please write your last name ");
+        console.log("Customer Full Name: " + firstName  + " " + lastName );
+
+        //Email
+        var email = prompt("Please write your email ");
+        console.log("Email: " + email);
+        //Phone
+        var phone = prompt("Please write your phone");
+        console.log("Phone: " + phone);
+
+        //Tax and Prices
+        const HST_TAX = 0.13;
+        const CHOCOLATE_COOKIE_PRICE = 3.99;
+        const PEANUT_COOKIE_PRICE = 4.99;
+
+        //Number chocolate cookie
+        var numberChocolatecookie = prompt("How many chocolate cookie would you like ? ");
+        console.log("Chocolate cookies: " + numberChocolatecookie);
+
+        //Number peanur cookie
+        var numberPeanutcookie = prompt("How many peanut butter cookies would you like ? ");
+        console.log("Peanut butter cookies: " + numberPeanutcookie);
+
+        //Subtotal in 2 decimal places
+        var subtotalAllcookie = (numberChocolatecookie * CHOCOLATE_COOKIE_PRICE) + (numberPeanutcookie * PEANUT_COOKIE_PRICE);
+        var fixedCookie = subtotalAllcookie.toFixed(2);
+        console.log("Subtotal: $" + fixedCookie);
+
+        //Amount tax in 2 decimal places
+        var amountTax = (subtotalAllcookie * HST_TAX);
+        var fixedTax = amountTax.toFixed(2);
+        console.log("Tax: $" + fixedTax);
+
+        // Total price in 2 decimal places
+        var totalPrice = subtotalAllcookie + amountTax;
+        var fixedTotalPrice = totalPrice.toFixed(2);
+        console.log("Total: $" + fixedTotalPrice);
+
+        //String to intenger
+        var strtoIntChocolateCookie = parseInt(numberChocolatecookie);
+        var strtoIntPeanutCookie = parseInt(numberPeanutcookie);
+
+        // Total cookies in intenger and quantity of box
+        var totalCookiesINt = (strtoIntChocolateCookie + strtoIntPeanutCookie);
+        var qtdBox = Math.floor(totalCookiesINt / 6);
+        console.log("Number of Boxes: "+ qtdBox);
+
+        //number of bags
+        var numberBags = (totalCookiesINt % 6);
+        console.log("Number of bags: " + numberBags);
+       
+    </script>
+</body>
+</html>
