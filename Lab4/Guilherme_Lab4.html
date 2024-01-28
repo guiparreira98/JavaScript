@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lab 4</title>
+</head>
+
+<body>
+    <script>
+        //Prompt number of people ordering food
+        var qtdPeople = prompt("How many people are ordering food?", 4);
+
+        //prompt user meal selection
+        var mealSelection;
+        //Variables for menu option
+        var a = 9.95;
+        var b = 13.50;
+        var c = 7.95;
+        var d = 11.50;
+
+        //Ask then user if he want to choose manu options again
+        var userConfirm;
+
+        //Count each time Food time Food A, B , C and D was selecect in total for all customer
+        var numberTotalMealA = 0;
+        var numberTotalMealB = 0;
+        var numberTotalMealC = 0;
+        var numberTotalMealD = 0;
+
+        //Sum the amount of order for each customer
+        var grandTotalA = 0;
+        
+        for (i = 1; i <= qtdPeople; i++) {
+            //Define the  order total value for each meal type and for each cutomer
+            var orderTotal = 0;
+
+            //Counter for each type of food
+            var counter1 = 0;
+            var counter2 = 0;
+            var counter3 = 0;
+            var counter4 = 0;
+
+            // sum the total of all options was selected for each customer
+            var counterTotal = 0;
+
+            // amount($) for the total  meals select, for each customer
+            var grandTotalMeal = 0;
+        
+            // prompt message, count and sum while the user dont click cancel
+            do {
+                //meal selection
+                mealSelection = prompt("Hello customer #" + i + "\nEnter the meal option:\nA - Hamburger and Fries: $9.95 \nB - Soup and Salad: $13.50 \nC - Turkey Wrap and Veggies: $7.95 \nD - Hot Dog and Onion Rings: $11.50");
+                //If condition
+                if (mealSelection == "A") {
+                    orderTotal = a + orderTotal;
+                    counter1++;
+                    numberTotalMealA = counter1;
+                }
+                else if (mealSelection == "B") {
+                    orderTotal = b + orderTotal;
+                    counter2++;
+                    numberTotalMealB = counter2;
+                }
+                else if (mealSelection == "C") {
+                    orderTotal = c + orderTotal;
+                    counter3++;
+                    numberTotalMealC = counter3;
+                }
+                else if (mealSelection == "D") {
+                    orderTotal = d + orderTotal;
+                    counter4++;
+                    numberTotalMealD = counter4;
+
+                }
+
+                // sum the quantity each option was selected
+                counterTotal = counter1 + counter2 + counter3 + counter4;
+
+                
+                // confirm if usewr want to select another option
+                userConfirm = confirm("Would you like another meal? ");
+
+
+            }
+            while (userConfirm == true)
+
+            // store the value of order total
+            grandTotalMeal = orderTotal;
+            // grandtotalMeal to fixed in 2 decimal place
+            grandTotalMeal = grandTotalMeal.toFixed(2);
+            // Sum the amount of order for each customer
+            grandTotalA = grandTotalA + orderTotal;
+
+            alert("Customer " + i + " here is your order: \n" + counter1 + " of meal Option A \n" + counter2 + " of meal Option B \n" + counter3 + " of meal Option C \n" + counter4 + " of meal Option D \n" + "The total for your " + counterTotal + " meals(s) is: $" + grandTotalMeal);
+
+        }
+        //grandTotalA to fixed in 2 decimal place
+        grandTotalA = grandTotalA.toFixed(2);
+        alert("Total number of Meal A: " + numberTotalMealA + "\nTotal number of Meal B: " + numberTotalMealB + "\nTotal number of Meal C: " + numberTotalMealC + "\nTotal number of Meal D: " + numberTotalMealD + "\nThe grand total for " + qtdPeople +" Customers" + " is $" + grandTotalA);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Lab 3</title>
+</head>
+<body>
+    <h1>Internet Service calculator</h1>
+    <script>
+
+
+        //Asking the user the billing month and whick package he would like to choose
+        var billingMonth = prompt("Enter the current billing month");
+        var package = prompt
+        ("Select one of the avaliable service packages: \nPackage 1: 10 hours internet acess \nPackage 2: 20 hours internet acess \nPackage 3: unlimited internet acess\nEnter 1, 2 or 3");
+
+        // asking user for the Number of hours used
+        var numberHoursUsed = prompt("Enter the number of hours you used the internet for the month of " + billingMonth);
+
+        // feePack value
+        var feePack1 = 9.95;
+        var feePack2 = 13.95;
+        var feePack3 = 19.95;
+
+        var total;
+
+        // str to int
+        var numberHoursToInt = parseInt(numberHoursUsed);
+
+        // IF conditions
+        if (package == 1 ){
+            if(numberHoursToInt >10){
+                total = feePack1 +((numberHoursToInt-10)*2);
+            }
+            else{
+                total = feePack1;
+            }
+        }
+        else if(package == 2){
+            if(numberHoursToInt >20){
+                total = feePack2 +((numberHoursToInt-20)*1);
+
+            }
+            else{
+                total =feePack2;
+            }
+            
+        }
+        else if(package ==3){
+                total =feePack3;
+            
+        }
+        
+        //Document write output
+        document.write("Service Bill for: " + billingMonth + "<br>");
+        document.write("Internet Package: " + package + "<br>");
+        document.write("Hours used: " + numberHoursUsed + "<br>");
+        document.write("Service Fee (before tax):$" + total);
+    </script>
+</body>
+</html>

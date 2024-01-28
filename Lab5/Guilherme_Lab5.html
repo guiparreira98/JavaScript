@@ -1,0 +1,118 @@
+<!--
+Name:Guilherme Valli Parreira
+Date:01/11/2022
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lab 5</title>
+	<style>
+		body {
+			font-family: Arial;
+			background-color: #ccffff;
+			color: #0a126b;
+			font-size: 150%;
+		}
+
+		#output {
+			border: 12px double #202775;
+			color: #523620;
+			text-align: center;
+			padding: 20px;
+			margin: 20px auto 10px auto;
+			width: 450px;
+		}
+
+		.button {
+			font-family: Arial;
+			font-size: 14pt;
+			color: white;
+			background-color: #202775;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Math Drills</h1>
+	<!-- Math Operator Input -->
+	Select an arithmetic operation (* or +):
+	<input type="text" id="tbOperator" value="*">
+	<br> <br>
+
+	<!-- Integer Input -->
+	Enter a positive integer value between 1 and 100:
+	<input type="text" id="tbInteger">
+	<br> <br>
+
+	<!-- Buttons -->
+	<input type="button" value="Calculate" class="button" onclick="Calculate()" />
+	<input type="button" value="Clear" class="button" onclick="clearOutput()" />
+
+	<!-- Output -->
+	<div id="output"></div>
+
+	<!-- Javascript -->
+	<script>
+		/*Function to calculate the amount inputed*/
+		function Calculate() {
+			/*responsable to get the operator inputed*/
+			var operation = document.getElementById("tbOperator").value;
+
+			/*responsable to get thgennumber inputed*/
+			var positiveIntenger = document.getElementById("tbInteger").value;
+			/*tranfer from string to int*/
+			positiveIntenger = parseInt(positiveIntenger);
+
+			/*If condition*/
+			if (positiveIntenger >= 1 && positiveIntenger <= 100 && operation != "") {
+				/*If condition*/
+				if (operation == "*") {
+					/*Control the amount it will make the operation*/
+					for (var i = 1; i <= 12; i++) {
+						var sum = 0;
+						var result = 0;
+						sum = i * positiveIntenger;
+						result = (i + " X " + positiveIntenger + "=" + sum + "<br>");
+						document.getElementById("output").innerHTML += result + "<br>";
+
+
+					}
+				}
+				/*else if condition*/
+				else if (operation == "+") {
+					/*Control the amount it will make the operation*/
+					for (j = 1; j <= 12; j++) {
+						var sum = 0;
+						var result = 0;
+						sum = j + positiveIntenger;
+						result = (j + " + " + positiveIntenger + "=" + sum);
+						document.getElementById("output").innerHTML += result + "<br>";
+					}
+				}
+			}
+			else {
+				/*alert that the input is incorrect*/
+				alert("Input is incorrect");
+				clearOutput();
+			}
+
+
+
+		}
+		/*call the function to clean*/
+		function clearOutput() {
+			/*clean the output*/
+			document.getElementById("output").innerHTML = "";
+			/*clean the output*/
+			document.getElementById("tbOperator").value = "";
+			/*clean the output*/
+			document.getElementById("tbInteger").value = "";
+
+		}
+
+
+	</script>
+</body>
+
+</html>
